@@ -39,7 +39,7 @@ There is more variation in the average amount of goals scored when analysing by 
 
 <p align='center'>
   <img 
-    width='600'
+    width='400'
     src='images/average_goals_by_league.png'
   >
 </p>
