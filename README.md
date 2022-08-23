@@ -35,7 +35,7 @@ Combining the rows for Home and Away goals, we can analyse how the average amoun
 
 The two figures below show how the average number of goals scored varies by season and league.Accross the 31 seasons goals scored per game remains fairly constant, at around 2.5 goals per game per season. 
 There is more variation in the average amount of goals scored when analysing by League, with 'eredivisie' and 'Premier League' having a higher amount of goals scored. 
-![Average Goals By Season]('images/average_goals_by_league.png')
-![Average Goals By Year]('images/average_goals_year.png')
+![Average Goals By Season](images/average_goals_by_league.png)
+![Average Goals By Year](images/average_goals_year.png)
 
 Exploring how the average number of fouls have varied by season and leag
