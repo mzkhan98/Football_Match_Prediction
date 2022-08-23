@@ -11,7 +11,7 @@ The data set has 31 csv files for each league, and we have been given data on 14
 
 The files are iteratively added converted into one large pandas data frame using the following for loop. 
 
-'''
+```
 
 files = glob.glob("./Football-Dataset/*/*.csv")
 pd_list = []
@@ -22,7 +22,7 @@ for file in files:
 
 df = pd.concat(pd_list)
 
-'''
+```
 
 A dictionary containing ELO's for each match, needs to converted into a Dataframe and joined to the data frame containing match data. Once this is done various steps are taken to clean the data, such as: 
 - Removal of null and duplicated values
@@ -35,7 +35,7 @@ Combining the rows for Home and Away goals, we can analyse how the average amoun
 
 The two figures below show how the average number of goals scored varies by season and league.Accross the 31 seasons goals scored per game remains fairly constant, at around 2.5 goals per game per season. 
 There is more variation in the average amount of goals scored when analysing by League, with 'eredivisie' and 'Premier League' having a higher amount of goals scored. 
-![Average Goals By Season]('images/average_goals_by_season.png')
-![Average Goals By Year]('images/average_goals_season.png')
+![Average Goals By Season]('images/average_goals_by_league.png')
+![Average Goals By Year]('images/average_goals_year.png')
 
-Exploring 
+Exploring how the average number of fouls have varied by season and leag
