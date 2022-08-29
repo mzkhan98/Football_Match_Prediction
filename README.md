@@ -1,5 +1,5 @@
 ## Football Outcome Predictions
-
+![Football Image](images/Football_banner.jpg)
 ### Overview and Business Problem
 
 In this project a large dataset containing information on Football matches from various different leagues since 1990, is cleaned, analysed and processed to create a ML model to predict the outcomes of matches. 
@@ -93,3 +93,21 @@ As seen in the figure below, From 1900 till 2016 the home team would will a lot 
     src='images/home_team_adv.png'
   >
 </p>
+
+## Feature Engineering
+New features need to be created before we can build the machine learning model Pandas and Numpy are used to isolate, manipulate and aggregate data in various ways, the end goal of this step is to produce a clean data set with only numerical values, that can be interpreted by ML models. 
+
+The first step is to convert the 'Date_New' Column into a time stamp, so data can be organised chronologically. 
+
+The following features are then created: 
+
+- Winnging steak for home, away and both. 
+- Form i.e. sum of outcomes for last 5 matches for home, away and both. 
+- Goals scored over the last 20 matches. 
+
+Additionally, non-numerical data sets are removed. 
+
+## Upload Data to Database
+The next step of the project is to set up an AWS RDS instance, and upsert data. This has been done on previous projects, therefore does not take long. 
+
+Additionally steps are compiled into a pipeline.
