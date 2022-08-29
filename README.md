@@ -99,7 +99,7 @@ New features need to be created before we can build the machine learning model P
 
 The first step is to convert the 'Date_New' Column into a time stamp, so data can be organised chronologically. 
 
-The following features are then created: 
+Various additional features are created, for instance:
 
 - Winnging steak for home, away and both. 
 - Form i.e. sum of outcomes for last 5 matches for home, away and both. 
@@ -111,3 +111,33 @@ Additionally, non-numerical data sets are removed.
 The next step of the project is to set up an AWS RDS instance, and upsert data. This has been done on previous projects, therefore does not take long. 
 
 Additionally steps are compiled into a pipeline.
+
+## Model Creation
+
+Now the data has been cleaned and transformed into numerical form that can be understood by ML algorithms, ML models can be created. 
+
+Feature heatmaps are used to find correlation between features, so features that have a high correlation with the outcome of the game can be selected. This is dont to boost the performance of our ML models. 
+
+From the heatmap below we can see that a Home win is has high correlation with the following features, Home Team Outcome, Capacity, Elo_home,Elo_away. 
+
+<p align='center'>
+  <img 
+    width='400'
+    src='images/heatmap.png'
+  >
+</p>
+
+The next step is to drop irrelevant elements features and to build the Model using sklearn. Accuracy is selected to be the metric we are optimizing for since, false positives and false negatives are equally important as each other. 
+
+The models and respective accuracy are given in the table below. 
+
+| Model                        | Accuracy  |
+|------------------------------|-----------|
+| Logistic Regression          | 60.5%     |
+| Random Forest Classifier     | 58.46%    |
+| KNeighbors Classifier        | 56.23%    |
+| Decision Tree Classifier     | 54.05%    |
+| AdaBoost Classifier          | 60.25%    |
+| Gradient Boosting Classifier | 60.55%    |
+
+
