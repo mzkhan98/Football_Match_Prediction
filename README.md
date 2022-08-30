@@ -131,13 +131,38 @@ The next step is to drop irrelevant elements features and to build the Model usi
 
 The models and respective accuracy are given in the table below. 
 
-| Model                        | Accuracy  |
-|------------------------------|-----------|
-| Logistic Regression          | 60.5%     |
-| Random Forest Classifier     | 58.46%    |
-| KNeighbors Classifier        | 56.23%    |
-| Decision Tree Classifier     | 54.05%    |
-| AdaBoost Classifier          | 60.25%    |
-| Gradient Boosting Classifier | 60.55%    |
+          | Model                        | Accuracy  |
+          |------------------------------|-----------|
+          | Logistic Regression          | 60.5%     |
+          | Random Forest Classifier     | 58.46%    |
+          | KNeighbors Classifier        | 56.23%    |
+          | Decision Tree Classifier     | 54.05%    |
+          | AdaBoost Classifier          | 60.25%    |
+          | Gradient Boosting Classifier | 60.55%    |
 
+The next step of the project is to hypertune paramters to achieve create optimal model architecture.
+GridSearch method is used to hypertune the ML models. 
 
+```
+n_estimators = [int(x) for x in np.linspace(start = 10, stop = 20, num = 10)]
+min_split = [int(x) for x in np.linspace(start = 100, stop = 150, num = 50)]
+max_depth = [int(x) for x in np.linspace(10, 2, num = 2)]
+min_leaf = [int(x) for x in np.linspace(start = 1, stop = 10, num = 5)]
+max_features = [int(x) for x in np.linspace(start = 7, stop = 7, num = 7)]
+
+grid = {'n_estimators': n_estimators,
+        'min_samples_split': min_split,
+        'max_depth': max_depth,
+        'min_samples_leaf': min_leaf,
+        'max_features': max_features,
+        'subsample':[0.6,0.7,0.75,0.8,0.85,0.9,1.0],
+        }
+
+model_2 = GradientBoostingClassifier(n_estimators= 130, learning_rate=0.1, max_depth=2, min_samples_split=100, max_features=7, subsample = 0.9)
+grid_search = GridSearchCV(model_2, grid, cv = 3, verbose=2, n_jobs = -1)
+grid_result = grid_search.fit(X_train, y_train)
+print(f'Best Score: {grid_result.best_score_ * 100:.2f}%')
+print(f'Best Hyperparameters: {grid_result.best_params_}')
+
+```
+Using this method, the model accuracy for the Gradient Boost model increases from 60.5% to 60.87%. 
